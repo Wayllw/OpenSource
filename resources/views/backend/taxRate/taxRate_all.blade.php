@@ -24,6 +24,8 @@
                             <thead>
                                 <tr>
                                     <th>Ln</th>
+                                    <th>TaxRate Code</th> 
+                                    <th>Description</th>
                                     <th>TaxRate</th> 
                                     <th>Action</th>  
                                 </tr>
@@ -32,6 +34,8 @@
                         	   @foreach($taxRates as $key => $item)
                                     <tr>
                                         <td> {{ $key+1}} </td>
+                                        <td> {{ $item->taxRateCode }} </td>
+                                        <td> {{ $item->description }} </td>
                                         <td> {{ $item->taxRate }} </td>
                                         <td>
                                             <a href="{{route('taxRate.edit',$item->id)}}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>

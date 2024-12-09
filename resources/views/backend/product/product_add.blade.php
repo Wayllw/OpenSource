@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Add Product</h4><br><br>
-                        <form method="post" action="{{route('product.store')}}" id="myForm">
+                        <form method="post" action="{{route('product.store')}}" id="myForm" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Product Code</label>
@@ -39,26 +39,26 @@
                                 <select id="product_unit" name="product_unit" class="form-select select2" aria-label="Default select example">
                                         <option selected=""></option>
                                         @foreach($unitMesures as $prod)
-                                        <option iOption= "" value="{{$prod->unit}}">{{$prod->unit}}</option>
+                                        <option iOption= "" value="{{$prod->unitMesure}}">{{$prod->unitMesure}}</option>
                                         @endforeach
                                     </select>
                             </div>
                             <!-- end row -->
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Postal Code</label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Tax Rate</label>
                                 <div class="form-group col-sm-2">
-                                    <select id="produt_taxRate" name="produt_taxRate" class="form-select select2" aria-label="Default select example">
+                                    <select id="produt_taxRate" name="taxRateCode_Product" class="form-select select2" aria-label="Default select example">
                                         <option selected=""></option>
                                         @foreach($taxRates as $prod)
-                                        <option iTaxDescription= "{{$prod->descriptionTaxRate}} - {{$prod->taxRate}}%" value="{{$prod->taxRateCode}}">{{$prod -> taxRateCode}}</option>
+                                        <option iTaxDescription= "{{$prod->descriptionTaxRate}} - {{$prod->taxRate}}" value="{{$prod->taxRateCode}}">{{$prod -> taxRateCode}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <label for="example-text-input" id="ibLocation" name="IbTaxDescription" class="col-sm-8 col-form-label"></label>
+                                <label for="example-text-input" id="IbTaxDescription" name="IbTaxDescription" class="col-sm-8 col-form-label"></label>
                             </div>
                             <!-- end row -->
                             <div class="form-group row mb-3">
-                                <div class="col-sm-10">
+                                <div class="col-sm-11">
                                     <input name="profile_image" class="form-control" type="file" id="image">
                                 </div>
                             </div>

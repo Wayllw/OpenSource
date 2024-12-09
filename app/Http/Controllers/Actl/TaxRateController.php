@@ -23,8 +23,8 @@ class TaxRateController extends Controller
     public function TaxRateStore(Request $request){
         TaxRate::insert([
             'taxRate' => $request->taxRate,
-            'taxRateCode' => $request->taxRate,
-            'description' => $request->taxRate,
+            'taxRateCode' => $request->taxRateCode,
+            'description' => $request->description,
             'created_by' => Auth::user()->id,
             'created_at' => Carbon::now(),
         ]);
@@ -49,8 +49,8 @@ class TaxRateController extends Controller
 
         TaxRate::findOrFail($taxRate_id)->update([
             'taxRate' => $request->taxRate,
-            'taxRateCode' => $request->taxRate,
-            'description' => $request->taxRate,
+            'taxRateCode' => $request->taxRateCode,
+            'description' => $request->description,
             'updated_by' => Auth::user()->id,
             'updated_at' => Carbon::now(),
         ]);

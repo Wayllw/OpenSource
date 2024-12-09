@@ -25,20 +25,20 @@ class ProductController extends Controller
     }
 
     public function ProductAdd(){
-        $families = Family::all();
+        $familys = Family::all();
         $unitMesures = UnitMesure::latest()->get();
         $taxRates = TaxRate::latest()->get();
         return view('backend.product.product_add', compact('families','unitMesures','taxRates'));
     }
 
     public function ProductStore(Request $request){
-        if($request -> file('profile_image')){
+        if($request->file('profile_image')){
             $manager = new ImageManager(new Driver());
             $transformName = hexdec(uniqid()).".".$request->file('profile_image')->getClientOriginalExtension();
             $img=$manager->read($request->file('profile_image'));
             $img=$img->resize(200,200);
             $img->toJpeg(80)->save(base_path('public/backend/assets/images/product/'.$transformName));
-            $save_url='/backend/assets/images/product'.$transformName;
+            $save_url='/backend/assets/images/product/'.$transformName;
         }
 
         try{
@@ -52,7 +52,7 @@ class ProductController extends Controller
                 'created_by' => Auth::user()->id,
                 'created_at' => Carbon::now(),
             ]);
-            
+
             $notification = array(
                 'message' => 'Product added successfully!', 
                 'alert-type' => 'success'
@@ -60,7 +60,7 @@ class ProductController extends Controller
             return redirect()->route('product.all')->with($notification);
         } catch (\Exception $e){
             $notification = array(
-                'message' => 'Product not added!', 
+                'message' => 'Product not added!' .$e->getMessage(), 
                 'alert-type' => 'error'
             );
             if(file_exists($save_url)){

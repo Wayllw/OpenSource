@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Edit Product</h4><br><br>
-                        <form method="post" action="{{route('product.update')}}" id="myForm">
+                        <form method="post" action="{{route('product.update')}}" id="myForm" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="id" value="{{$product->id}}">
                             <div class="row mb-3">
@@ -29,7 +29,7 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Family</label>
                                 <select id="product_family" name="product_family" class="form-select select2" aria-label="Default select example">
                                         <option selected=""></option>
-                                        @foreach($families as $prod)
+                                        @foreach($familys as $prod)
                                         <option iOption= "" value="{{$prod->family}}"{{$prod->family==$product->family?'selected':''}}>
                                             {{$prod->family}}
                                         </option>
@@ -42,7 +42,7 @@
                                 <select id="product_unit" name="product_unit" class="form-select select2" aria-label="Default select example">
                                         <option selected=""></option>
                                         @foreach($unitMesures as $prod)
-                                        <option iOption= "" value="{{$prod->unit}}"{{$prod->unit==$product->unit?'selected':''}}>{{$prod->unit}}</option>
+                                        <option iOption= "" value="{{$prod->unitMesure}}"{{$prod->unitMesure==$product->unitMesure?'selected':''}}>{{$prod->unitMesure}}</option>
                                         @endforeach
                                     </select>
                             </div>
@@ -50,7 +50,7 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Postal Code</label>
                                 <div class="form-group col-sm-2">
-                                    <select id="produt_taxRate" name="produt_taxRate" class="form-select select2" aria-label="Default select example">
+                                    <select id="produt_taxRate" name="taxRateCode_Product" class="form-select select2" aria-label="Default select example">
                                         <option selected=""></option>
                                         @foreach($taxRates as $prod)
                                         <option iTaxDescription= "{{$prod->descriptionTaxRate}} - {{$prod->taxRate}}%" value="{{$prod->taxRateCode}}"{{$prod->taxRateCode==$product->taxRateCode?'selected':''}}>{{$prod -> taxRateCode}}</option>
@@ -74,7 +74,7 @@
                             </div>
                             <!-- end row -->
                             <div class="form-group row mb-3">
-                                <input type="submit" class="btn btn-info waves-effect waves-light" value="Add Product">
+                                <input type="submit" class="btn btn-info waves-effect waves-light" value="Confirm Edit">
                             </div>
                         </form>
                     </div>

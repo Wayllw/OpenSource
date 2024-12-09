@@ -8,28 +8,28 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Edit tax rate</h4><br><br>
-                        <form method="post" action="{{route('unitMesure.update')}}" id="myForm">
+                        <form method="post" action="{{route('taxRate.update')}}" id="myForm">
                             @csrf
-                            <input type="hidden" name="id" value="{{$unitMesure->id}}">
-                            <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">TaxRate</label>
-                                <div class="form-group col-sm-10">
-                                    <input name="unitMesure" class="form-control" type="text" value="{{$unitMesure->unitMesure}}">
-                                </div>
-                            </div>                           
+                            <input type="hidden" name="id" value="{{$taxRate->id}}">                          
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">TaxRateCode</label>
                                 <div class="form-group col-sm-10">
-                                    <input name="unitMesureCode" class="form-control" type="text" value="{{$unitMesureCode->unitMesureCode}}">
+                                    <input name="taxRateCode" class="form-control" type="number" value="{{$taxRate->taxRateCode}}">
                                 </div>
                             </div>                           
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
                                 <div class="form-group col-sm-10">
-                                    <input name="description" class="form-control" type="text" value="{{$description->description}}">
+                                    <input name="description" class="form-control" type="text" value="{{$taxRate->description}}">
                                 </div>
                             </div>                           
                              <!-- end row -->
+                            <div class="row mb-3">
+                                <label for="example-text-input" class="col-sm-2 col-form-label">TaxRate</label>
+                                <div class="form-group col-sm-10">
+                                    <input name="taxRate" class="form-control" type="text" value="{{$taxRate->taxRate}}">
+                                </div>
+                            </div> 
                             <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Tax Rate">
                         </form>
                     </div>
