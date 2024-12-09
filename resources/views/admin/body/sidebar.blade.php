@@ -50,6 +50,13 @@
                                             <li><a href="customers.html">Customers</a></li>
                                             <li><a href="leads.html">Leads</a></li>
                                         </ul>
+                                        <ul class="sub-menu" aria-expanded="true">
+                                            <li><a href="ed1.html">Quotation Request</a></li>
+                                            <li><a href="ed2.html">Puchase Order</a></li>
+                                            <li><a href="ed3.html">Good Receipt</a></li>
+                                            <li><a href="{{route('product.all')}}">Products</a></li>
+                                        </ul>
+
                                     </li>
                                 </ul>
                             </li>
