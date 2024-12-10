@@ -28,7 +28,7 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Family</label>
                                 <select id="product_family" name="product_family" class="form-select select2" aria-label="Default select example">
                                         <option selected=""></option>
-                                        @foreach($families as $prod)
+                                        @foreach($familys as $prod)
                                         <option iOption= "" value="{{$prod->family}}">{{$prod->family}}</option>
                                         @endforeach
                                     </select>

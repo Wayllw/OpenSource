@@ -28,7 +28,7 @@ class ProductController extends Controller
         $familys = Family::all();
         $unitMesures = UnitMesure::latest()->get();
         $taxRates = TaxRate::latest()->get();
-        return view('backend.product.product_add', compact('families','unitMesures','taxRates'));
+        return view('backend.product.product_add', compact('familys','unitMesures','taxRates'));
     }
 
     public function ProductStore(Request $request){
