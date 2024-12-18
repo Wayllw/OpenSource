@@ -7,18 +7,17 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Edit Unit</h4><br><br>
-                        <form method="post" action="{{route('unitMesure.update')}}" id="myForm">
+                        <h4 class="card-title">Add Unit Mesure</h4><br><br>
+                        <form method="post" action="{{route('unitMeasure.store')}}" id="myForm">
                             @csrf
-                            <input type="hidden" name="id" value="{{$unitMesure->id}}">
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">UnitMesure</label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">UnitMeasure</label>
                                 <div class="form-group col-sm-10">
-                                    <input name="unitMesure" class="form-control" type="text" value="{{$unitMesure->unitMesure}}">
+                                    <input name="unitMeasure" class="form-control" type="text" id="family">
                                 </div>
-                            </div>                           
-                             <!-- end row -->
-                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Unit">
+                            </div>
+                            <!-- end row -->
+                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Add UnitMeasure">
                         </form>
                     </div>
                 </div>
@@ -30,13 +29,13 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                unitMesure: {
+                unitMeasure: {
                     required : true,
-                }, 
+                },
             },
             messages :{
-                unitMesure: {
-                    required : 'Please Enter unitMesure.',
+                unitMeasure: {
+                    required : 'Please Enter UnitMeasure.',
                 },
             },
             errorElement : 'span', 

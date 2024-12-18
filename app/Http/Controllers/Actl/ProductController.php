@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Family;
 use App\Models\TaxRate;
-use App\Models\UnitMesure;
+use App\Models\UnitMeasure;
 
 use Auth;
 use Illuminate\Support\Carbon;
@@ -26,9 +26,9 @@ class ProductController extends Controller
 
     public function ProductAdd(){
         $familys = Family::all();
-        $unitMesures = UnitMesure::latest()->get();
+        $unitMeasures = UnitMeasure::latest()->get();
         $taxRates = TaxRate::latest()->get();
-        return view('backend.product.product_add', compact('familys','unitMesures','taxRates'));
+        return view('backend.product.product_add', compact('familys','unitMeasures','taxRates'));
     }
 
     public function ProductStore(Request $request){
@@ -74,10 +74,10 @@ class ProductController extends Controller
 
     public function ProductEdit($id){
         $familys = Family::all();
-        $unitMesures = UnitMesure::all();
+        $unitMeasures = UnitMeasure::all();
         $taxRates = TaxRate::all();
         $product = Product::findOrFail($id);
-        return view('backend.product.product_edit', compact('familys', 'unitMesures', 'taxRates','product'));
+        return view('backend.product.product_edit', compact('familys', 'unitMeasures', 'taxRates','product'));
 
     }
 

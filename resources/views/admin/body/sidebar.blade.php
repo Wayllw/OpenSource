@@ -28,7 +28,7 @@
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{route('postalCode.all')}}">Postal Code</a></li>
                                     <li><a href="{{route('family.all')}}">Family</a></li>
-                                    <li><a href="{{route('unitMesure.all')}}">UnitMesure</a></li>
+                                    <li><a href="{{route('unitMeasure.all')}}">UnitMeasure</a></li>
                                     <li><a href="{{route('taxRate.all')}}">TaxRate</a></li>
                                 </ul>
                             </li>

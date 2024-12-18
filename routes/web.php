@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Actl\PostalCodeController;
 use App\Http\Controllers\Actl\SupplierController;
 use App\Http\Controllers\Actl\FamilyController;
-use App\Http\Controllers\Actl\UnitMesureController;
+use App\Http\Controllers\Actl\UnitMeasureController;
 use App\Http\Controllers\Actl\TaxRateController;
 use App\Http\Controllers\Actl\ProductController;
 use App\Http\Controllers\Actl\PurchaseOrderController;
@@ -50,13 +50,13 @@ Route::controller(FamilyController::class)->group(function(){
     Route::post('/family/update', 'FamilyUpdate')->name('family.update');
     Route::get('/family/delete/{id}', 'FamilyDelete')->name('family.delete');
 });
-Route::controller(UnitMesureController::class)->group(function(){
-    Route::get('/unitMesure/all', 'UnitMesureAll')->name('unitMesure.all');
-    Route::get('/unitMesure/add', 'UnitMesureAdd')->name('unitMesure.add');
-    Route::post('/unitMesure/store', 'UnitMesureStore')->name('unitMesure.store');
-    Route::get('/unitMesure/edit/{id}', 'UnitMesureEdit')->name('unitMesure.edit');
-    Route::post('/unitMesure/update', 'UnitMesureUpdate')->name('unitMesure.update');
-    Route::get('/unitMesure/delete/{id}', 'UnitMesureDelete')->name('unitMesure.delete');
+Route::controller(UnitMeasureController::class)->group(function(){
+    Route::get('/unitMeasure/all', 'UnitMeasureAll')->name('unitMeasure.all');
+    Route::get('/unitMeasure/add', 'UnitMeasureAdd')->name('unitMeasure.add');
+    Route::post('/unitMeasure/store', 'UnitMeasureStore')->name('unitMeasure.store');
+    Route::get('/unitMeasure/edit/{id}', 'UnitMeasureEdit')->name('unitMeasure.edit');
+    Route::post('/unitMeasure/update', 'UnitMeasureUpdate')->name('unitMeasure.update');
+    Route::get('/unitMeasure/delete/{id}', 'UnitMeasureDelete')->name('unitMeasure.delete');
 });
 Route::controller(TaxRateController::class)->group(function(){
     Route::get('/taxRate/all', 'TaxRateAll')->name('taxRate.all');

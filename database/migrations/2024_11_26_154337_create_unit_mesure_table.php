@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('UnitMesure', function (Blueprint $table) {
+        Schema::create('UnitMeasure', function (Blueprint $table) {
             $table->id()->unique();
-            $table->string("unitMesure")->unique();
+            $table->string("unit")->unique();
             $table->integer("created_by")->nullable();
             $table->integer("updated_by")->nullable();             
             $table->timestamps();
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('UnitMesure');
+        Schema::dropIfExists('UnitMeasure');
     }
 };

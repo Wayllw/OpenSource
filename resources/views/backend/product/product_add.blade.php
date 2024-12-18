@@ -38,8 +38,8 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Unit</label>
                                 <select id="product_unit" name="product_unit" class="form-select select2" aria-label="Default select example">
                                         <option selected=""></option>
-                                        @foreach($unitMesures as $prod)
-                                        <option iOption= "" value="{{$prod->unitMesure}}">{{$prod->unitMesure}}</option>
+                                        @foreach($unitMeasures as $prod)
+                                        <option iOption= "" value="{{$prod->unit}}">{{$prod->unit}}</option>
                                         @endforeach
                                     </select>
                             </div>
