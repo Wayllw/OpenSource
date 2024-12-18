@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('UnitMeasure', function (Blueprint $table) {
-            $table->id()->unique();
-            $table->string("unit")->unique();
-            $table->integer("created_by")->nullable();
-            $table->integer("updated_by")->nullable();             
+            $table->id();
+            $table->string('unit', 25)->unique();
+            $table->tinyInteger('status')->default('1');
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }
