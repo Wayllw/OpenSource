@@ -50,7 +50,7 @@
                                     <select id="produt_taxRate" name="taxRateCode_Product" class="form-select select2" aria-label="Default select example">
                                         <option selected=""></option>
                                         @foreach($taxRates as $prod)
-                                        <option iTaxDescription= "{{$prod->descriptionTaxRate}} - {{$prod->taxRate}}" value="{{$prod->taxRateCode}}">{{$prod -> taxRateCode}}</option>
+                                        <option value="{{$prod->taxRateCode}}">{{$prod -> taxRateCode}}</option>
                                         @endforeach
                                     </select>
                                 </div>

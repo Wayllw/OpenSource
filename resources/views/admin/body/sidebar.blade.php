@@ -26,9 +26,6 @@
                                     <span>Common Tables</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="">Series</a></li>
-                                    <li><a href="">Tax Rates</a></li>
-                                    <li><a href="">Units</a></li>
                                     <li><a href="{{route('postalCode.all')}}">Postal Code</a></li>
                                     <li><a href="{{route('family.all')}}">Family</a></li>
                                     <li><a href="{{route('unitMesure.all')}}">UnitMesure</a></li>
@@ -43,10 +40,12 @@
                                     <span>Business Partners</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="{{route('product.all')}}">Products</a></li>
+                                    <li><a href="{{route('supplier.all')}}">Suppliers</a></li>
+                                    <li><a href="{{route('purchaseOrder.all')}}">Purchase Order</a></li>
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">Entry Documents</a>
                                         <ul class="sub-menu" aria-expanded="true">
-                                            <li><a href="{{route('supplier.all')}}">Suppliers</a></li>
                                             <li><a href="customers.html">Customers</a></li>
                                             <li><a href="leads.html">Leads</a></li>
                                         </ul>
@@ -54,7 +53,7 @@
                                             <li><a href="ed1.html">Quotation Request</a></li>
                                             <li><a href="ed2.html">Puchase Order</a></li>
                                             <li><a href="ed3.html">Good Receipt</a></li>
-                                            <li><a href="{{route('product.all')}}">Products</a></li>
+                                            
                                         </ul>
 
                                     </li>

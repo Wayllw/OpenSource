@@ -9,6 +9,7 @@ use App\Http\Controllers\Actl\FamilyController;
 use App\Http\Controllers\Actl\UnitMesureController;
 use App\Http\Controllers\Actl\TaxRateController;
 use App\Http\Controllers\Actl\ProductController;
+use App\Http\Controllers\Actl\PurchaseOrderController;
 
 
 Route::get('/', function () {
@@ -72,6 +73,14 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/product/edit/{id}', 'ProductEdit')->name('product.edit');
     Route::post('/product/update', 'ProductUpdate')->name('product.update');
     Route::get('/product/delete/{id}', 'ProductDelete')->name('product.delete');
+});
+Route::controller(PurchaseOrderController::class)->group(function(){
+    Route::get('/purchaseOrder/all', 'PurchaseOrderAll')->name('purchaseOrder.all');
+    Route::get('/purchaseOrder/add', 'PurchaseOrderAdd')->name('purchaseOrder.add');
+    Route::post('/purchaseOrder/store', 'PurchaseOrderStore')->name('purchaseOrder.store');
+    Route::get('/purchaseOrder/edit/{id}', 'PurchaseOrderEdit')->name('purchaseOrder.edit');
+    Route::post('/purchaseOrder/update', 'PurchaseOrderUpdate')->name('purchaseOrder.update');
+    Route::get('/purchaseOrder/delete/{id}', 'PurchaseOrderDelete')->name('purchaseOrder.delete');
 });
 
 Route::get('/dashboard', function () {
