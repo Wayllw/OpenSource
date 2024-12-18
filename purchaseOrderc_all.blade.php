@@ -17,7 +17,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('purchaseorderc.add') }}" class="btn btn-secondary
+                        <a href="{{ route('purchaseorder.add') }}" class="btn btn-secondary
                         btn-rounded waves-effect waves-light" style="float:right;">Add PurchaseOrderC</a> <br><br>
                         <h4 class="card-title">PurchaseOrderC All Data </h4>
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

@@ -11,8 +11,8 @@ use Illuminate\Support\Carbon;
 class PurchaseOrderController extends Controller
 {
     public function PurchaseOrderAll(){
-    $purchaseOrderc = Purchaseorderc::latest()->get();
-    return view('backend.purchaseOrder.purchaseOrder_all',compact('purchaseOrder'));
+        $purchaseOrderCs = PurchaseOrder::latest()->get();
+        return view('backend.purchaseOrder.purchaseOrder_all',compact('purchaseOrderCs'));
     }
 
     public function PurchaseOrderAdd(){

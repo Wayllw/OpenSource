@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('puchase_order_d', function (Blueprint $table) {
+        Schema::create('purchaseOrderD', function (Blueprint $table) {
             $table->id();
             $table->double('deliveredQuantity');
             $table->double('discount');
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('puchase_order_d');
+        Schema::dropIfExists('purchaseOrderD');
     }
 };

@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseOrder extends Model
 {
     use HasFactory;
-    protected $table = "PurchaseOrderC";
+    protected $table = "PurchaseOrderc";
     protected $guarded = [];
 
-    public function purchaseordercLink(){
-        return $this->belongsTO(Purchaseorderc::class ,'purchaseOrderC', 'purchaseOrderC');
+    public function supplierLink(){
+        return $this->belongsTO(Supplier::class ,'name', 'name');
     }
 }

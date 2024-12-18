@@ -23,7 +23,7 @@
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
-                                    <th>Ln</th>
+                                    <th>Order</th>
                                     <th>Supplier Name</th> 
                                     <th>P Order Num</th> 
                                     <th>Date</th>  
@@ -34,7 +34,7 @@
                         	   @foreach($purchaseOrderCs as $key => $item)
                                     <tr>
                                         <td> {{ $key+1}} </td>
-                                        <td> {{ $item->['supplierLink']['name']}} </td> 
+                                        <td> {{ $item['supplierLink']['name']}} </td> 
                                         <td> {{ $item->pONumber }} </td> 
                                         <td> {{ $item->pODate }} </td> 
                                         <td> {{ $item->POObservation }} </td> 

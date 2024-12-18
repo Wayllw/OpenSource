@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('PuchaseOrderC', function (Blueprint $table) {
+        Schema::create('PurchaseOrderC', function (Blueprint $table) {
             $table->id();
             $table->double('discount');
             $table->integer('pODate')->nullable();
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('PuchaseOrderC');
+        Schema::dropIfExists('PurchaseOrderC');
     }
 };
