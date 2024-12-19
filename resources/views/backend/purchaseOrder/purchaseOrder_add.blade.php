@@ -143,9 +143,9 @@
                 <tr>
                     <td>${productId} <input type="hidden" name="products[]" value="${$('#product').val()}"></td>
                     <td><input type="number" min="1" name="quantities[]" value="${quantity}" class="form-control quantity" required></td>
-                    <td><input type="text" name="units[]" value="${unit}" class="form-control" required></td>
+                    <td>${unit}</td>
                     <td><input type="number" min="0" name="prices[]" value="${price}" class="form-control price" required></td>
-                    <td>${description}</td>
+                    <td><input type="text" name="descriptions[]" value="${description}" class="form-control" required></td>
                     <td class="total">${total}</td>
                     <td><button type="button" class="btn btn-danger removeProduct">Remove</button></td>
                 </tr>
@@ -192,7 +192,7 @@
                 success: function (products) {
                     // Populate Product dropdown with the fetched products
                     $.each(products, function (key, product) {
-                        productDropdown.append(`<option value="${product.id}" data-unit="${product.unit}"> ${product.description} </option>`);
+                        productDropdown.append(`<option value="${product.code}" data-unit="${product.unit}"> ${product.description} </option>`);
                     });
                 },
                 error: function () {

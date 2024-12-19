@@ -32,7 +32,7 @@ class ProductController extends Controller
     }
 
     public function getProductsByFamily($family){
-        $products = Product::where('family', $family)->get(['id', 'description', 'unit']);
+        $products = Product::where('family', $family)->get(['code', 'description', 'unit']);
         return response()->json($products);
     }
 
