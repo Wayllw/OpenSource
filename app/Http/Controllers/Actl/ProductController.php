@@ -42,6 +42,7 @@ class ProductController extends Controller
             $transformName = hexdec(uniqid()).".".$request->file('profile_image')->getClientOriginalExtension();
             $img=$manager->read($request->file('profile_image'));
             $img=$img->resize(200,200);
+            $transformName = 'product-image.jpg';
             $img->toJpeg(80)->save(base_path('public/backend/assets/images/product/'.$transformName));
             $save_url='/backend/assets/images/product/'.$transformName;
         }
@@ -59,20 +60,20 @@ class ProductController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Product added successfully!', 
+                'message' => 'Product added successfully!',
                 'alert-type' => 'success'
             );
             return redirect()->route('product.all')->with($notification);
         } catch (\Exception $e){
             $notification = array(
-                'message' => 'Product not added!' .$e->getMessage(), 
+                'message' => 'Product not added!' .$e->getMessage(),
                 'alert-type' => 'error'
             );
             if(file_exists($save_url)){
                 unlink($save_url);
             }
             return redirect()->route('product.all')->with($notification);
-        
+
         }
     }
 
@@ -99,7 +100,7 @@ class ProductController extends Controller
             $newImagePath = base_path('public/backend/assets/images/product/'.$transformName);
             $img->toJpeg(80)->save($newImagePath);
             $save_url = '/backend/assets/images/product/'.$transformName;
-        }   
+        }
 
         try{
             if($request->file('profile_image')){
@@ -117,7 +118,7 @@ class ProductController extends Controller
                     unlink($oldImagePath);
                 }
                 $notification = array(
-                    'message' => 'Product updated successfully!', 
+                    'message' => 'Product updated successfully!',
                     'alert-type' => 'success'
                 );
                 return redirect()->route('product.all')->with($notification);
@@ -132,19 +133,19 @@ class ProductController extends Controller
                     'created_at' => Carbon::now(),
                 ]);
                 $notification = array(
-                    'message' => 'Product updated successfully!', 
+                    'message' => 'Product updated successfully!',
                     'alert-type' => 'success'
                 );
                 return redirect()->route('product.all')->with($notification);
             }
         } catch(\Exception $e) {
             $notification = [
-                'message' => 'Product not updated!' .$e->getMessage(), 
+                'message' => 'Product not updated!' .$e->getMessage(),
                 'alert-type' => 'error'
             ];
             return redirect()->route('product.all')->with($notification);
         }
-     
+
 
     }
 
@@ -158,18 +159,18 @@ class ProductController extends Controller
                 unlink($imgPath);
             }
             $notification = array(
-                'message' => 'Product deleted successfully!', 
+                'message' => 'Product deleted successfully!',
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);
         }catch(\Exception $e){
             $notification = [
-                'message' => 'Product not deleted!' . $e->getMessage(), 
+                'message' => 'Product not deleted!' . $e->getMessage(),
                 'alert-type' => 'error'
             ];
             return redirect()->back()->with($notification);
         }
-    
+
     }
 
 }
