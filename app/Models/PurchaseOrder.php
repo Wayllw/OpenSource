@@ -12,6 +12,6 @@ class PurchaseOrder extends Model
     protected $guarded = [];
 
     public function supplierLink(){
-        return $this->belongsTO(Supplier::class ,'name', 'name');
+        // return $this->belongsTO(Supplier::class ,'name', 'name');
     }
 }

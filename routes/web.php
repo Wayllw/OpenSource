@@ -66,7 +66,9 @@ Route::controller(TaxRateController::class)->group(function(){
     Route::post('/taxRate/update', 'TaxRateUpdate')->name('taxRate.update');
     Route::get('/taxRate/delete/{id}', 'TaxRateDelete')->name('taxRate.delete');
 });
+// routes/web.php
 Route::controller(ProductController::class)->group(function(){
+    Route::get('/products-by-family/{family}', 'getProductsByFamily')->name('products.byFamily');
     Route::get('/product/all', 'ProductAll')->name('product.all');
     Route::get('/product/add', 'ProductAdd')->name('product.add');
     Route::post('/product/store', 'ProductStore')->name('product.store');

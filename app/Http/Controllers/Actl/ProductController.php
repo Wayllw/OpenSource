@@ -25,10 +25,15 @@ class ProductController extends Controller
     }
 
     public function ProductAdd(){
-        $familys = Family::all();
+        $familys = Family::latest()->get();
         $unitMeasures = UnitMeasure::latest()->get();
         $taxRates = TaxRate::latest()->get();
         return view('backend.product.product_add', compact('familys','unitMeasures','taxRates'));
+    }
+
+    public function getProductsByFamily($family){
+        $products = Product::where('family', $family)->get(['id', 'description', 'unit']);
+        return response()->json($products);
     }
 
     public function ProductStore(Request $request){
