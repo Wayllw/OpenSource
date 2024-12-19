@@ -97,7 +97,7 @@
             // Get values from the header inputs
             let productDropdown = $('#productDropdown');
             let productId = productDropdown.val();
-            let productText = productDropdown.find('option:selected').text();            let unit = productDropdown.find('option:selected').data('unit');
+            let productText = productDropdown.find('option:selected').text(); 
             let unit = productDropdown.find('option:selected').data('unit');
             let quantity = 1; // Default quantity
             let price = 0; // Default price
@@ -153,7 +153,7 @@
                 success: function (products) {
                     // Populate Product dropdown with the fetched products
                     $.each(products, function (key, product) {
-                        productDropdown.append(`<option value="${product.id}" data="${product.unit}"> ${product.description} </option>`);
+                        productDropdown.append(`<option value="${product.id}" data-unit="${product.unit}"> ${product.description} </option>`);
                     });
                 },
                 error: function () {
