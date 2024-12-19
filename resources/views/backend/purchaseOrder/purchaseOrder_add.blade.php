@@ -32,7 +32,7 @@
                                 </div>
                                 
                                 <div class="col-md-3">
-                                     <label for="supplier_name">Supplier Name</label>                                    
+                                     <label for="product_family">Supplier Name</label>                                    
                                      <select id="familyDropdown" name="product_family" class="form-select select2" aria-label="Default select example">
                                         <option selected="">Select Family</option>
                                         @foreach($familys as $family)
@@ -75,7 +75,18 @@
                                     </table>
                                 </div>
                             </div>
+
+                            <div> 
+                                <label for="product">Discount</label>
+                                <input type="number" id="discount" name="discount" class="form-control">
+                            </div>
                             
+                            <div class="row mt-3">
+                                <div class="col-12 text-right">
+                                    <h5>Total Price: <span id="finalTotal">0.00</span></h5>
+                                </div>
+                            </div>
+
                             <!-- Submit Button -->
                             <div class="row mt-4">
                                 <div class="col-12 text-right">
@@ -92,6 +103,28 @@
 
 <script>
     $(document).ready(function () {
+
+        function calculateFinalTotal() {
+            let finalTotal = 0;
+
+            // Iterate over all rows and sum up the total column
+            $('#productTable tbody tr').each(function () {
+                let rowTotal = parseFloat($(this).find('.total').text()) || 0;
+                finalTotal += rowTotal;
+            });
+
+            // Subtract the discount from the total
+            let discount = parseFloat($('#discount').val()) || 0;
+            finalTotal -= discount;
+
+            // Ensure the total doesn't go below zero
+            finalTotal = finalTotal < 0 ? 0 : finalTotal;
+
+            // Update the final total display
+            $('#finalTotal').text(finalTotal.toFixed(2));
+        }
+
+
         // Add Product Button Click
         $('#addProduct').on('click', function () {
             // Get values from the header inputs
@@ -109,9 +142,9 @@
             let newRow = `
                 <tr>
                     <td>${productId} <input type="hidden" name="products[]" value="${$('#product').val()}"></td>
-                    <td><input type="number" name="quantities[]" value="${quantity}" class="form-control quantity" required></td>
+                    <td><input type="number" min="1" name="quantities[]" value="${quantity}" class="form-control quantity" required></td>
                     <td><input type="text" name="units[]" value="${unit}" class="form-control" required></td>
-                    <td><input type="number" name="prices[]" value="${price}" class="form-control price" required></td>
+                    <td><input type="number" min="0" name="prices[]" value="${price}" class="form-control price" required></td>
                     <td>${description}</td>
                     <td class="total">${total}</td>
                     <td><button type="button" class="btn btn-danger removeProduct">Remove</button></td>
@@ -135,6 +168,12 @@
             let total = quantity * price;
 
             row.find('.total').text(total.toFixed(2));
+            calculateFinalTotal();
+        });
+
+        // Recalculate total when discount is changed
+        $('#discount').on('input', function () {
+            calculateFinalTotal();
         });
 
         $('#familyDropdown').on('change', function () {
